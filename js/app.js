@@ -11,35 +11,54 @@ timelineOne
 .to('.show', {display: 'block'})
 .to('.show', {opacity: '1'});
 
-$hideClass = 'hide-class';
-$activeClass = 'hide-class';
+let activeSection = 1;
 
 $botaoSobre = $('#sobremim').click(function(e){
     e.preventDefault();
-    // $('.projetos').addClass($hideClass);
-    // $('.contato').addClass($hideClass);
+    if(activeSection != 1){
+        timelineTwo
+        .to('#sobremim', {borderBottom: '3px solid white'})
+        .to('#projetos', {borderBottom: 'none'}, '-=1')
+        .to('#contato', {borderBottom: 'none'}, '-=1');
+        timelineTwo
+        .to('.projetos', {display: 'none', opacity: 0}, '-=1')
+        .to('.contato', {display: 'none', opacity: 0}, '-=1')
+        .to('.sobre-mim', {display: 'block', opacity: 1, duration: 1});
+        activeSection = 1;
 
-    timelineTwo
-    .to('.projetos', {display: 'none', opacity: 0}, '-=1')
-    .to('.contato', {display: 'none', opacity: 0}, '-=1')
-    .to('.sobre-mim', {display: 'block', opacity: 1, duration: 1});
-    // $('.sobre-mim').removeClass($hideClass);
-
+        
+    }
 });
 
 $botaoProjetos = $('#projetos').click(function(e){
     e.preventDefault();
-    timelineTwo
-    .to('.sobre-mim', {display: 'none', opacity: 0}, '-=1')
-    .to('.contato', {display: 'none', opacity: 0}, '-=1')
-    .to('.projetos', {display: 'block', opacity: 1, duration: 1});
+    if(activeSection != 2){
+        timelineTwo
+        .to('#projetos', {borderBottom: '3px solid white'})
+        .to('#sobremim', {borderBottom: 'none'}, '-=1')
+        .to('#contato', {borderBottom: 'none'}, '-=1');
+        timelineTwo
+        .to('.sobre-mim', {display: 'none', opacity: 0}, '-=1')
+        .to('.contato', {display: 'none', opacity: 0}, '-=1')
+        .to('.projetos', {display: 'block', opacity: 1, duration: 1});
+        activeSection = 2;
+    }
 });
 
 $botaoContato = $('#contato').click(function(e){
     e.preventDefault();
-    timelineTwo
-    .to('.sobre-mim', {display: 'none', opacity: 0}, '-=1')
-    .to('.projetos', {display: 'none', opacity: 0}, '-=1')
-    .to('.contato', {display: 'block', opacity: 1, duration: 1});
+   if(activeSection != 3){
+         timelineTwo
+         .to('#contato', {borderBottom: '3px solid white'})
+         .to('#sobremim', {borderBottom: 'none'}, '-=1')
+         .to('#projetos', {borderBottom: 'none'}, '-=1');
+        timelineTwo
+        .to('.sobre-mim', {display: 'none', opacity: 0}, '-=1')
+        .to('.projetos', {display: 'none', opacity: 0}, '-=1')
+        .to('.contato', {display: 'block', opacity: 1, duration: 1});
+        activeSection = 3;
+
+        
+   }
 });
 
