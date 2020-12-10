@@ -22,3 +22,25 @@ h1, h2, h3, h4, h5, h6{
     font-weight: normal;
 }
 
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+@mixin device($size){
+    @if $size == desktop{
+        @media screen and (min-width: #{$l-device}){
+            @content;
+        }
+    }
+    @else if $size == tablet{
+        @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}){
+            @content;
+        }
+    }
+
+    @else if $size == phone{
+        @media screen and (max-width: #{$m-device - 1}){
+            @content;
+        }
+    }
+}
