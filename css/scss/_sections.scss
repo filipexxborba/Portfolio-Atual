@@ -284,7 +284,10 @@
             }
 
             li+li{
-                margin-left: rem(0);
+                margin-left: rem(32);
+                @include device(phone){
+                    margin-left: 0;
+                }
                 
             }
             li{
