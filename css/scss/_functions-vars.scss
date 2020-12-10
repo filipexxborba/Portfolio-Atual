@@ -1,0 +1,20 @@
+@mixin font-normal{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+@mixin font-mono{
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+@function em($size, $context: 16){
+    @return $size / $context + em;
+}
+
+@function rem($size, $context: 16){
+    @return $size / $context + rem;
+}
+
+@mixin wrapper{
+    max-width: rem(1200);
+    margin: 0 auto;
+}
